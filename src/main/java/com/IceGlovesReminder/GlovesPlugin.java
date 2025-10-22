@@ -129,7 +129,6 @@ public class GlovesPlugin extends Plugin{
         return hammer && oilyFishingRod && fishingBait;
     }
 
-    private Instant lastTime = Instant.now();
 
     @Subscribe
     public void onGameTick(GameTick gameTick){
@@ -138,7 +137,7 @@ public class GlovesPlugin extends Plugin{
         }
         ItemContainer equipment = client.getItemContainer(InventoryID.WORN);
         Item gloves = equipment != null ? equipment.getItem(EquipmentInventorySlot.GLOVES.getSlotIdx()) : null;
-        boolean shouldAddOverlay = (gloves == null && checkInventory());
+        boolean shouldAddOverlay = (gloves == null && !checkInventory());
 
         if (shouldAddOverlay && config.anglerEquipped() && checkFullAngler() && checkItemsInInventory()){
             if(overlayVisible == -1){
@@ -173,7 +172,6 @@ public class GlovesPlugin extends Plugin{
         if (overlayManager != null) {
             overlayManager.add(glovesOverlay);
             overlayVisible = client.getTickCount();
-            lastTime = Instant.now();
         }
     }
 
