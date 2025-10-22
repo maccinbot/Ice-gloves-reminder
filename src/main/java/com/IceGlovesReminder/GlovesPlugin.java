@@ -28,6 +28,7 @@ public class GlovesPlugin extends Plugin{
     private static final int FISHING_BAIT = ItemID.FISHING_BAIT;
     private static final int HAMMER = ItemID.HAMMER;
     private static final int ICE_GLOVES = ItemID.ICE_GLOVES;
+    private static final int SMITHS_GLOVES = ItemID.SMITHING_UNIFORM_GLOVES_ICE;
     private static final int ANGLER_HAT = 13258;
     private static final int ANGLER_TOP = 13259;
     private static final int ANGLER_LEGS = 13260;
@@ -59,7 +60,7 @@ public class GlovesPlugin extends Plugin{
         if (equipment == null) {
             return false;
         }
-        return equipment.contains(ICE_GLOVES);
+        return equipment.contains(ICE_GLOVES) || equipment.contains(SMITHS_GLOVES);
     }
 
     boolean checkInventory() {
@@ -67,7 +68,7 @@ public class GlovesPlugin extends Plugin{
         if (inventory == null) {
             return false;
         }
-        return inventory.contains(ICE_GLOVES);
+        return inventory.contains(ICE_GLOVES) || inventory.contains(SMITHS_GLOVES);
     }
 
     boolean checkHelm(){
