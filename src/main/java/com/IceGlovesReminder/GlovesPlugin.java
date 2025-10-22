@@ -1,13 +1,11 @@
-package com.infernaleelCheck;
+package com.IceGlovesReminder;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.gameval.InventoryID;
-import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemVariationMapping;
@@ -16,14 +14,13 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.api.gameval.ItemID;
 import net.runelite.client.ui.overlay.OverlayManager;
 
-import java.time.Duration;
 import java.time.Instant;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Infernal Eel Check"
+	name = "Ice Gloves Reminder"
 )
-public class infernaleelCheckPlugin extends Plugin{
+public class GlovesPlugin extends Plugin{
 
     private int overlayVisible;
 
@@ -47,14 +44,14 @@ public class infernaleelCheckPlugin extends Plugin{
     private OverlayManager overlayManager;
 
     @Inject
-    private infernaleelCheckOverlay glovesOverlay;
+    private GlovesOverlay glovesOverlay;
 
 	@Inject
-	private infernaleelCheckConfig config;
+	private GlovesConfig config;
 
     @Provides
-    infernaleelCheckConfig provideConfig(ConfigManager configManager){
-        return configManager.getConfig(infernaleelCheckConfig.class);
+    GlovesConfig provideConfig(ConfigManager configManager){
+        return configManager.getConfig(GlovesConfig.class);
     }
 
     boolean checkGloves(){
