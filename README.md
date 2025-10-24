@@ -1,8 +1,8 @@
-# 🧤 Ice Gloves Reminder
+#  Ice Gloves Reminder
 
 A very simple plugin that alerts you if you've got all the items for infernal eels but have forgotten the ice gloves!
 
-## ⚙️ Configuration Options
+##  Configuration Options
 
 | Setting | Description | Default |
 |----------|--------------|----------|
